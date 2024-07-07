@@ -24,6 +24,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
   gem 'rubocop', '~> 1.64', require: false
   gem 'shoulda-matchers', '~> 4.5', '>= 4.5.1'
+  gem 'slim', '~> 5.2'
+  gem 'tailwindcss-rails', '~> 2.6'
 end
 
 group :development do

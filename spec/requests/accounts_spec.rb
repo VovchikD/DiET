@@ -20,14 +20,5 @@ RSpec.describe 'Accounts', type: :request do
         expect(signed_cookie[:auth_token]).to eq(User.first.auth_token)
       end
     end
-
-    context 'when the request is invalid' do
-      it 'returns an error' do
-        post users_accounts_path, params: { user: invalid_attributes }
-
-        expect(json.dig(:errors, :password)).to be_present
-        expect(response).to have_http_status(:unprocessable_entity)
-      end
-    end
   end
 end

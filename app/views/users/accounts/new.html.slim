@@ -1,0 +1,32 @@
+.flex.items-center.justify-center.mt-20
+  .sm:mx-auto.sm:w-full.sm:max-w-sm
+    .mx-auto.mb-4
+      img.mx-auto.h-10.w-auto.mb-4 src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company"
+      h2.text-center.text-3xl.font-bold.text-green
+        | Welcome
+
+    - if @user.errors.any?
+      .text-red-500
+        ul
+          - @user.errors.full_messages.each do |message|
+            li= message
+
+    = form_for :user, url: users_accounts_path do |f|
+      .mt-4.sm:w-full.sm:max-w-sm
+        = f.label :email, class: "block text-sm font-medium text-gray-900"
+
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full py-2 px-3 border rounded-md"
+      .mt-4.sm:w-full.sm:max-w-sm
+        = f.label :password, class: "block text-sm font-medium text-gray-900"
+        - if @minimum_password_length
+          em
+            | (
+            = @minimum_password_length
+            |  characters minimum)
+        = f.password_field :password, autocomplete: "current-password", class: "w-full py-2 px-3 border rounded-md"
+      .mt-4.sm:w-full.sm:max-w-sm
+        = f.label :password_confirmation, class: "block text-sm font-medium text-gray-900"
+
+        = f.password_field :password_confirmation, autocomplete: "new-password", class: "w-full py-2 px-3 border rounded-md"
+      .mt-6.sm:w-full.sm:max-w-sm
+        = f.submit "Sign up", class: "flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm text-white shadow-sm"
