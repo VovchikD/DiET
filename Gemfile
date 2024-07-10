@@ -21,6 +21,8 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails', '~> 6.2'
+  gem 'faraday', '~> 2.10'
+  gem 'pundit', '~> 2.3'
   gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
   gem 'rubocop', '~> 1.64', require: false
   gem 'shoulda-matchers', '~> 4.5', '>= 4.5.1'

@@ -1,0 +1,14 @@
+= form_with(model: @meal, local: true) do |form|
+
+  .mt-4.sm:w-full.sm:max-w-sm
+    = form.label :name, class: "block text-sm font-medium text-gray-900"
+    = form.text_field :name, class: "w-full py-2 px-3 border rounded-md"
+
+  .mt-4.sm:w-full.sm:max-w-sm
+    = form.label :eaten_at, class: "block text-sm font-medium text-gray-900"
+    .mt-1.block.w-full.shadow-sm.sm:text-sm.border.border-gray-300.rounded-md
+      = form.datetime_select :eaten_at, class: "w-full"
+
+  .mt-4.sm:w-full.sm:max-w-sm
+    = form.submit "Submit", class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+

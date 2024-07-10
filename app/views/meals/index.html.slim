@@ -1,0 +1,21 @@
+- if @meals.present?
+  .relative.overflow-x-auto.shadow-md.sm:rounded-lg
+    table.w-full.text-sm.text-left.rtl:text-right.text-gray-500.dark:text-gray-400
+      thead.text-xs.text-gray-700.uppercase.bg-gray-50.dark:bg-gray-700.dark:text-gray-400
+        tr
+          th.px-6.py-3 Name
+          th.px-6.py-3 Calories
+          th.px-6.py-3 Eaten at
+          th.px-6.py-3 colspan="3" Actions
+      tbody
+        - @meals.each do |meal|
+          tr.odd:bg-white.odd:dark:bg-gray-900.even:bg-gray-50.even:dark:bg-gray-800.border-b.dark:border-gray-700
+            td.px-6.py-4= meal.name
+            td.px-6.py-4= meal.calories
+            td.px-6.py-4= meal.eaten_at
+            td.px-6.py-4
+              = link_to 'Show', meal, class: 'font-medium text-blue-600 dark:text-blue-500 hover:underline'
+            td.px-6.py-4
+              = button_to 'Destroy', meal_path(meal), method: :delete, class: 'font-medium text-red-600 dark:text-red-500 hover:underline'
+- else
+  = link_to 'New Meal', new_meal_path, class: 'font-medium text-blue-600 dark:text-blue-500 hover:underline'

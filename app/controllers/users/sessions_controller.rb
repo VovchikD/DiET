@@ -11,7 +11,7 @@ module Users
 
       if valid_user
         cookies.signed[:auth_token] = { value: @user.auth_token, expires: 1.year.from_now }
-        # redirect_to root_path
+        redirect_to meals_path
       else
         @user ||= User.new(sign_in_params)
         @user.errors.add(:base, 'Invalid email or password')
