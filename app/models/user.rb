@@ -6,6 +6,9 @@ class User < ApplicationRecord
   has_secure_password
   has_secure_token :auth_token
 
+  has_many :meals, dependent: :destroy
+  has_many :diets, dependent: :destroy
+
   before_validation :normalize_email
 
   validates :email, presence: true, length: { maximum: 255 }, uniqueness: { case_sensitive: false },

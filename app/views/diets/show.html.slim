@@ -1,0 +1,15 @@
+div.p-4.max-w-xl.mx-auto.bg-white.rounded-xl.shadow-md.space-y-4
+  p.text-gray-700.flex.justify-between
+    strong.font-semibold Name:
+    span.text-right.text-gray-900
+      = @diet.name
+  - @diet.meals.each do |meal|
+    li
+      = meal.name
+      |  - 
+      = meal.calories
+      |  calories
+
+  div.flex.items-center.space-x-4
+    = link_to 'Edit', edit_diet_path(@diet), class: 'text-blue-600 dark:text-blue-500 hover:underline'
+    = link_to raw('&#8592; Back'), :back, class: 'text-blue-600 dark:text-blue-500 hover:underline'

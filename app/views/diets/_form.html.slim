@@ -1,0 +1,20 @@
+= form_with(model: diet, local: true) do |form|
+  - if diet.errors.any?
+    #error_explanation
+      h2
+        = pluralize(diet.errors.count, "error")
+        |  prohibited this diet from being saved:
+      ul
+        - diet.errors.full_messages.each do |message|
+          li = message
+
+  .mt-4.sm:w-full.sm:max-w-sm
+    = form.label :name, class: "block text-sm font-medium text-gray-900"
+    = form.text_field :name, class: "w-full py-2 px-3 border rounded-md"
+
+  .field
+    = form.label :meals
+    = form.collection_check_boxes :meal_ids, current_user.meals, :id, :name
+
+  .mt-4.sm:w-full.sm:max-w-sm
+    = form.submit "Submit", class: "inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"

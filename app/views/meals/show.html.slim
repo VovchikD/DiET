@@ -1,0 +1,20 @@
+div.p-4.max-w-xl.mx-auto.bg-white.rounded-xl.shadow-md.space-y-4
+  p.text-gray-700.flex.justify-between
+    strong.font-semibold.text-gray-900 Name:
+    span.text-right
+      = @meal.name
+
+  p.text-gray-700.flex.justify-between
+    strong.font-semibold.text-gray-900 Calories:
+    span.text-right
+      = @meal.calories
+
+  p.text-gray-700.flex.justify-between 
+    strong.font-semibold.text-gray-900 Eaten at:
+    span.text-right 
+      = @meal.eaten_at
+
+  div.flex.items-center.space-x-4
+    = link_to 'Edit', edit_meal_path(@meal), class: 'text-blue-600 dark:text-blue-500 hover:underline'
+    |  |
+    = link_to raw('&#8592; Back'), :back, class: 'text-blue-600 dark:text-blue-500 hover:underline'
