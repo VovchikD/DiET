@@ -4,7 +4,16 @@ class MealsController < ApplicationController
   before_action :set_meal, only: %i[edit update show destroy]
 
   def index
-    @meals = Meal.all
+    @meals = current_user.meals
+
+    if params[:filter].present?
+      case params[:filter]
+      when 'daily'
+        @meals = @meals.where(eaten_at: Date.today.all_day)
+      when 'monthly'
+        @meals = @meals.where(eaten_at: Date.today.all_month)
+      end
+    end
   end
 
   def show; end

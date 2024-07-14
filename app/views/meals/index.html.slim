@@ -17,5 +17,15 @@
               = link_to 'Show', meal, class: 'font-medium text-blue-600 dark:text-blue-500 hover:underline'
             td.px-6.py-4
               = button_to 'Destroy', meal_path(meal), method: :delete, class: 'font-medium text-red-600 dark:text-red-500 hover:underline'
+
+  .filters.flex.items-center.space-x-4.px-4
+    | Filters:
+    .mx-3
+      = link_to 'All', meals_path, class: 'font-medium text-blue-600 dark:text-blue-500 hover:underline'
+    .mx-3
+      = link_to 'Daily', meals_path(filter: 'daily'), class: 'font-medium text-blue-600 dark:text-blue-500 hover:underline'
+    .mx-3
+      = link_to 'Monthly', meals_path(filter: 'monthly'), class: 'font-medium text-blue-600 dark:text-blue-500 hover:underline'
+
 - else
   = link_to 'New Meal', new_meal_path, class: 'font-medium text-blue-600 dark:text-blue-500 hover:underline'

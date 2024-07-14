@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   resources :meals
+  resources :diets
 
   namespace :users do
     resources :accounts, only: %i[new create]
