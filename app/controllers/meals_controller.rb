@@ -9,10 +9,12 @@ class MealsController < ApplicationController
     if params[:filter].present?
       case params[:filter]
       when 'daily'
-        @meals = @meals.where(eaten_at: Date.today.all_day)
+        @meals = @meals.where(eaten_at: Time.zone.today.all_day)
       when 'monthly'
-        @meals = @meals.where(eaten_at: Date.today.all_month)
+        @meals = @meals.where(eaten_at: Time.zone.today.all_month)
       end
+    elsif params[:start_date].present? && params[:end_date].present?
+      @meals = @meals.where(eaten_at: params[:start_date]..params[:end_date])
     end
   end
 

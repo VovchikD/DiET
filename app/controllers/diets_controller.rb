@@ -1,16 +1,19 @@
+# frozen_string_literal: true
+
 class DietsController < ApplicationController
-  before_action :set_diet, only: [:show, :edit, :update, :destroy]
+  before_action :set_diet, only: %i[show edit update destroy]
 
   def index
     @diets = current_user.diets
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @diet = Diet.new
   end
+
+  def edit; end
 
   def create
     @diet = current_user.diets.build(diet_params)
@@ -20,9 +23,6 @@ class DietsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def edit
   end
 
   def update

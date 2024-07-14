@@ -1,0 +1,18 @@
+- if @meals.present?
+  h2 Report from #{params[:start_date]} to #{params[:end_date]}
+  p Total Calories: = @total_calories
+  .relative.overflow-x-auto.shadow-md.sm:rounded-lg
+    table.w-full.text-sm.text-left.rtl:text-right.text-gray-500.dark:text-gray-400
+      thead.text-xs.text-gray-700.uppercase.bg-gray-50.dark:bg-gray-700.dark:text-gray-400
+        tr
+          th.px-6.py-3 Name
+          th.px-6.py-3 Calories
+          th.px-6.py-3 Eaten at
+      tbody
+        - @meals.each do |meal|
+          tr.odd:bg-white.odd:dark:bg-gray-900.even:bg-gray-50.even:dark:bg-gray-800.border-b.dark:border-gray-700
+            td.px-6.py-4= meal.name
+            td.px-6.py-4= meal.calories
+            td.px-6.py-4= meal.eaten_at
+- else
+  p No meals found for the selected date range.
