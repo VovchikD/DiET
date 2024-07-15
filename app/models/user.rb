@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :meals, dependent: :destroy
   has_many :diets, dependent: :destroy
+  has_one :report_configuration, dependent: :destroy
 
   before_validation :normalize_email
 

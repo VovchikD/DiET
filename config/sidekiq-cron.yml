@@ -1,0 +1,14 @@
+# daily_reports_job:
+#   cron: '0 0 * * *' # Runs daily at midnight
+#   class: DailyReportsWorker
+#   queue: default
+
+weekly_report_job:
+  cron: '0 0 * * 0'
+  class: WeeklyReportJob
+  queue: default
+
+monthly_report_job:
+  cron: '0 0 1 * *'
+  class: MonthlyReportJob
+  queue: default
