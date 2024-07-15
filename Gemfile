@@ -22,12 +22,16 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails', '~> 6.2'
   gem 'faraday', '~> 2.10'
+  gem 'letter_opener', '~> 1.8.1'
   gem 'pundit', '~> 2.3'
   gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
   gem 'rubocop', '~> 1.64', require: false
   gem 'shoulda-matchers', '~> 4.5', '>= 4.5.1'
+  gem 'sidekiq', '~> 7.3'
+  gem 'sidekiq-cron', '~> 1.12'
   gem 'slim', '~> 5.2'
   gem 'tailwindcss-rails', '~> 2.6'
+  gem 'whenever', '~> 1.0.0', require: false
 end
 
 group :development do

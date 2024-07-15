@@ -23,9 +23,9 @@ class ApplicationController < ActionController::Base
     Current.user
   end
 
-  def authenticate_user!
-    return if current_user
+  # def authenticate_user!
+  #   return if current_user
 
-    redirect_to new_users_session_path
-  end
+  #   redirect_to new_users_session_path
+  # end
 end

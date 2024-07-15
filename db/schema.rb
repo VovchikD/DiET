@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_13_131905) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_14_081105) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,6 +40,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_13_131905) do
     t.integer "user_id"
   end
 
+  create_table "report_configurations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.boolean "daily_reports", default: false, null: false
+    t.boolean "weekly_reports", default: false, null: false
+    t.boolean "monthly_reports", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_report_configurations_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "password_digest", default: "", null: false
@@ -57,4 +67,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_13_131905) do
   add_foreign_key "diet_meals", "diets"
   add_foreign_key "diet_meals", "meals"
   add_foreign_key "diets", "users"
+  add_foreign_key "report_configurations", "users"
 end
