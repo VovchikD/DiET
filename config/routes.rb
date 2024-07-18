@@ -8,10 +8,8 @@ Rails.application.routes.draw do
   resources :diets
   resources :reports, only: %i[index create] do
     collection do
-      post 'enable_weekly'
-      post 'enable_monthly'
-      post 'enable_daily'
       get 'report_attributes'
+      post 'enable'
     end
   end
 

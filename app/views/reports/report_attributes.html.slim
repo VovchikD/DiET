@@ -1,23 +1,23 @@
 .mt-4
-  = form_with model: current_user.report_configuration, url: enable_weekly_reports_path, method: :post do |form|
+  = form_with model: current_user.report_configuration, url: enable_reports_path(type: 'weekly'), method: :post do |form|
     .flex.items-center.space-x-4.px-4
       .flex.items-center.border.border-gray-300.rounded-md.p-2
         = form.check_box :weekly_reports_enabled, class: 'mr-2'
-        = form.label :weekly_reports_enabled, 'Enable Weekly Reports', class: 'text-sm font-medium text-gray-700'
+        = form.label :enable, 'Enable Weekly Reports', class: 'text-sm font-medium text-gray-700'
       = form.submit 'Save', class: 'inline-flex items-center px-4 py-2 ml-4 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
 
 .mt-4
-  = form_with model: current_user.report_configuration, url: enable_monthly_reports_path, method: :post do |form|
+  = form_with model: current_user.report_configuration, url: enable_reports_path(type: 'monthly'), method: :post do |form|
     .flex.items-center.space-x-4.px-4
       .flex.items-center.border.border-gray-300.rounded-md.p-2
         = form.check_box :monthly_reports_enabled, class: 'mr-2'
-        = form.label :monthly_reports_enabled, 'Enable Monthly Reports', class: 'text-sm font-medium text-gray-700'
+        = form.label :enable, 'Enable Monthly Reports', class: 'text-sm font-medium text-gray-700'
       = form.submit 'Save', class: 'inline-flex items-center px-4 py-2 ml-4 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
 
 .mt-4
-  = form_with model: current_user.report_configuration, url: enable_daily_reports_path, method: :post do |form|
+  = form_with model: current_user.report_configuration, url: enable_reports_path(type: 'daily'), method: :post do |form|
     .flex.items-center.space-x-4.px-4
       .flex.items-center.border.border-gray-300.rounded-md.p-2
         = form.check_box :daily_reports_enabled, class: 'mr-2'
-        = form.label :daily_reports_enabled, 'Enable Daily Reports', class: 'text-sm font-medium text-gray-700'
+        = form.label :enable, 'Enable Daily Reports', class: 'text-sm font-medium text-gray-700'
       = form.submit 'Save', class: 'inline-flex items-center px-4 py-2 ml-4 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'

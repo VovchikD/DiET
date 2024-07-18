@@ -9,21 +9,22 @@ class ReportsController < ApplicationController
     @meals = current_user.meals.where(eaten_at: params[:start_date]..params[:end_date])
   end
 
-  def enable_weekly
-    current_user.report_configuration.update(weekly_reports: true)
-    WeeklyReportJob.perform_later(current_user.id)
-    redirect_to meals_path
-  end
+  def enable
+    current_user.report_configuration || current_user.create_report_configuration
 
-  def enable_monthly
-    current_user.report_configuration.update(monthly_reports: true)
-    MonthlyReportJob.perform_later(current_user.id)
-    redirect_to meals_path
-  end
-
-  def enable_daily
-    current_user.report_configuration.update(daily_reports: true)
-    DailyReportJob.perform_later(current_user.id)
+    case params[:type]
+    when 'weekly'
+      current_user.report_configuration.update(weekly_reports: true)
+      WeeklyReportJob.perform_later(current_user.id)
+    when 'monthly'
+      current_user.report_configuration.update(monthly_reports: true)
+      MonthlyReportJob.perform_later(current_user.id)
+    when 'daily'
+      current_user.report_configuration.update(daily_reports: true)
+      DailyReportJob.perform_later(current_user.id)
+    else
+      flash.now[:alert] = 'Invalid report type'
+    end
     redirect_to meals_path
   end
 

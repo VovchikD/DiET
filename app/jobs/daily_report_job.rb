@@ -5,7 +5,7 @@ class DailyReportJob < ApplicationJob
 
   def perform(user_id)
     user = User.find_by(id: user_id)
-    return user
+    return unless user
 
     start_date = Time.zone.today.beginning_of_day
     end_date = Time.zone.today.end_of_day

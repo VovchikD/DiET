@@ -21,7 +21,7 @@ class ReportMailer < ApplicationMailer
     mail(to: @user.email, subject: 'Your Monthly Report')
   end
 
-  def daily_report_email(user, start_day, end_day, total_calories)
+  def daily_report_email(user, start_date, end_date, total_calories)
     @user = user
     @start_date = start_date
     @end_date = end_date

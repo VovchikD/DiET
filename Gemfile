@@ -12,6 +12,8 @@ gem 'jbuilder'
 gem 'pg', '~> 1.5'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 7.0.4', '>= 7.0.4.2'
+gem 'sidekiq', '~> 7.3'
+gem 'sidekiq-cron', '~> 1.12'
 gem 'sprockets-rails'
 gem 'sqlite3', '~> 1.4'
 gem 'stimulus-rails'
@@ -27,8 +29,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0', '>= 5.0.1'
   gem 'rubocop', '~> 1.64', require: false
   gem 'shoulda-matchers', '~> 4.5', '>= 4.5.1'
-  gem 'sidekiq', '~> 7.3'
-  gem 'sidekiq-cron', '~> 1.12'
   gem 'slim', '~> 5.2'
   gem 'tailwindcss-rails', '~> 2.6'
   gem 'whenever', '~> 1.0.0', require: false
