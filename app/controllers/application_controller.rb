@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
   before_action :set_current_user
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
   helper_method :current_user
 
   private
@@ -24,8 +24,8 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user!
-    return if current_user
-
-    redirect_to new_users_session_path
+    unless current_user
+      redirect_to new_users_session_path unless controller_name == 'sessions' || controller_name == 'accounts'
+    end
   end
 end
